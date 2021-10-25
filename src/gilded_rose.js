@@ -13,11 +13,14 @@ items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
 items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
+const typeError = 'Improper types are present Item keys'
+const qualityError = 'Quality is less then 0'
+
 function update_quality() {
 
   for (var i = 0; i < items.length; i++) {
     
-    if(!Number.isInteger(items[i].sell_in) || !Number.isInteger(items[i].quality)) throw Error('Improper types are present Item keys')
+    if(!Number.isInteger(items[i].sell_in) || !Number.isInteger(items[i].quality)) throw typeError
 
     if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
       if (items[i].quality > 0) {

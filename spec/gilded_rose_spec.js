@@ -2,12 +2,15 @@ describe("Gilded Rose", function() {
 
   describe("Check for proper types", () => {
       it("if proper types are not present throw error", () => {
-
         items = []
-        const error = Error('Improper types are present Item keys')
         items.push(new Item('', '', ''))
+        expect(update_quality).toThrow(typeError)
+      })
 
-        expect(update_quality).toThrow(error)
+      it('if quality is less then 0 error is throw', () => {
+        items = []
+        items.push(new Item('', 10, -1))
+        expect(update_quality).toThrow(qualityError)
       })
     })
 
