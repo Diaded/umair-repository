@@ -26,40 +26,50 @@ describe("Gilded Rose", function() {
         expect(items[0].quality).toEqual(51)
 
       })
+      it("quality of backstage passes should increase twice as fast if sell_in day is within 10", () => {
+        items = []
+        let sell_in = 10
+        let quality = 20
+        items.push(new Item('Backstage passes', sell_in, quality))
+  
+        update_quality()
+        expect(items[0].quality).toEqual(22)
+  
+      })
+  
+      it("quality of backstage passes should increase three times as fast if sell_in day is within 5", () => {
+        items = []
+        let sell_in = 5
+        let quality = 20
+        items.push(new Item('Backstage passes', sell_in, quality))
+  
+        update_quality()
+        expect(items[0].quality).toEqual(23)
+  
+      })
+  
+      it("quality of backstage passes should drop to 0 if sell_in day is 0 or less", () => {
+        items = []
+        let sell_in = 1
+        let quality = 50
+        items.push(new Item('Backstage passes', sell_in, quality))
+  
+        update_quality()
+        expect(items[0].quality).toEqual(0)
+  
+      })
 
+      it("if sell_in days for backstage passes is already 0 or less its quality should be 0", () => {
+        items = []
+        let sell_in = 0
+        let quality = 25
+        items.push(new Item('Backstage passes', sell_in, quality))
+
+        update_quality()
+        expect(update_quality).toThrow('incorrect quality for backstage passes')
+      })
     })
 
-    it("quality of backstage passes should increase twice as fast if sell_in day is within 10", () => {
-      items = []
-      let sell_in = 10
-      let quality = 20
-      items.push(new Item('Backstage passes', sell_in, quality))
-
-      update_quality()
-      expect(items[0].quality).toEqual(22)
-
-    })
-
-    it("quality of backstage passes should increase three times as fast if sell_in day is within 5", () => {
-      items = []
-      let sell_in = 5
-      let quality = 20
-      items.push(new Item('Backstage passes', sell_in, quality))
-
-      update_quality()
-      expect(items[0].quality).toEqual(23)
-
-    })
-
-    it("quality of backstage passes should drop to 0 if sell_in day is 0 or less", () => {
-      items = []
-      let sell_in = 1
-      let quality = 50
-      items.push(new Item('Backstage passes', sell_in, quality))
-
-      update_quality()
-      expect(items[0].quality).toEqual(0)
-
-    })
+    
 
 });
