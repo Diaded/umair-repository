@@ -40,4 +40,15 @@ describe("Gilded Rose", function() {
 
     })
 
+    it("quality of backstage passes should increase three times as fast if sell_in day is within 5", () => {
+      items = []
+      let sell_in = 5
+      let quality = 20
+      items.push(new Item('Backstage passes', sell_in, quality))
+
+      update_quality()
+      expect(items[0].quality).toEqual(23)
+
+    })
+
 });
