@@ -64,9 +64,8 @@ describe("Gilded Rose", function() {
         let sell_in = 0
         let quality = 25
         items.push(new Item('Backstage passes', sell_in, quality))
-
-        update_quality()
-        expect(update_quality).toThrow('incorrect quality for backstage passes')
+        
+        expect(update_quality).toThrow(backStageQualityError)
       })
     })
 
