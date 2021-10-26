@@ -16,6 +16,16 @@ items.push(new Item('Conjured Mana Cake', 3, 6));
 const typeError = 'Improper types are present Item keys'
 const qualityError = 'Quality is less then 0'
 
+
+function handle_backstage_passes(item) {
+
+  item.sell_in -= 1
+  item.quality +=1
+
+  return;
+  
+}
+
 function update_quality() {
 
   for (const item of items) {
@@ -23,7 +33,7 @@ function update_quality() {
     if(!Number.isInteger(item.sell_in) || !Number.isInteger(item.quality)) throw typeError
     if(item.quality < 0) throw qualityError
 
-    
+    if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
 
 
   }
