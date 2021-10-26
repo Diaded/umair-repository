@@ -20,9 +20,9 @@ const qualityError = 'Quality is less then 0'
 function handle_backstage_passes(item) {
 
   item.sell_in -= 1
-  item.quality +=1
 
-  return;
+  if(item.sell_in <= 10) item.quality +=2
+  else item.quality +=1
   
 }
 
