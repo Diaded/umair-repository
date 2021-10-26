@@ -21,7 +21,8 @@ function handle_backstage_passes(item) {
 
   item.sell_in -= 1
 
-  if(item.sell_in <= 5) item.quality +=3
+  if(item.sell_in <= 0) item.quality = 0
+  else if(item.sell_in <= 5) item.quality +=3
   else if(item.sell_in <= 10) item.quality +=2
   else item.quality +=1
   
