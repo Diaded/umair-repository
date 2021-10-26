@@ -51,4 +51,15 @@ describe("Gilded Rose", function() {
 
     })
 
+    it("quality of backstage passes should drop to 0 if sell_in day is 0 or less", () => {
+      items = []
+      let sell_in = 1
+      let quality = 50
+      items.push(new Item('Backstage passes', sell_in, quality))
+
+      update_quality()
+      expect(items[0].quality).toEqual(0)
+
+    })
+
 });
