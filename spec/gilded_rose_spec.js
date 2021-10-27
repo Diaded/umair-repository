@@ -109,6 +109,17 @@ describe("Gilded Rose", function() {
 
     })
 
+    describe('handle conjured items', () => {
+      it('conjured items should decrease twice as fast', () => {
+        items = []
+        let sell_in = 10
+        let quality = 10
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(9)
+        expect(items[0].quality).toEqual(8)
+      })
+    })
     
 
 });
