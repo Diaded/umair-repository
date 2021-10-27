@@ -49,8 +49,10 @@ function handle_conjured_item(item) {
 
 function handle_other_item(item) {
   item.sell_in -=1
-  if(item.sell_in <= 0) item.quality -=2
-  else item.quality -=1
+  if(item.quality!==0) {
+    if(item.sell_in <= 0) item.quality -=2
+    else item.quality -=1
+  }
 }
 
 function update_quality() {

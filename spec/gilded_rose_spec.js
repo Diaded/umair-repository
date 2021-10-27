@@ -222,6 +222,8 @@ describe("Gilded Rose", function() {
         let quality = 0
 
         items.push(new Item('Elixir of the Mongoose', sell_in, quality))
+
+        update_quality()
         expect(items[0].sell_in).toEqual(9)
         expect(items[0].quality).toEqual(0)
       })
