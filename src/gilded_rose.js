@@ -47,6 +47,11 @@ function handle_conjured_item(item) {
   else item.quality -=2
 }
 
+function handle_other_item(item) {
+  item.sell_in -=1
+  item.quality -=1
+}
+
 function update_quality() {
 
   for (const item of items) {
@@ -60,5 +65,6 @@ function update_quality() {
     else if(item.name.includes('Sulfuras')) handle_sulfras(item)
     else if(item.name === "Aged Brie") handle_aged_brie(item)
     else if(item.name.includes('Conjured')) handle_conjured_item(item)
+    else handle_other_item(item)
   }
 }
