@@ -30,7 +30,11 @@ function handle_backstage_passes(item) {
 }
 
 function handle_sulfras(item) {
+  console.log(item)
   if(item.quality!==80) throw sulfrasQualityError
+  
+  item.sell_in -=1
+  
 
 }
 
@@ -42,7 +46,7 @@ function update_quality() {
     if(item.quality < 0) throw qualityError
 
     if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
-    if(item.name.includes('Sulfuras')) handle_sulfras(items)
+    else if(item.name.includes('Sulfuras')) handle_sulfras(item)
 
 
   }

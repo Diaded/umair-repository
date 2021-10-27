@@ -88,8 +88,8 @@ describe("Gilded Rose", function() {
         items.push(new Item('Sulfuras', sell_in, quality))
         
         update_quality()
-        expect(item[0].sell_in).toEqual(9)
-        expect(item[0].quality).toEqual(80)
+        expect(items[0].sell_in).toEqual(9)
+        expect(items[0].quality).toEqual(80)
       })
 
     })
