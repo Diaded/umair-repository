@@ -187,6 +187,18 @@ describe("Gilded Rose", function() {
         expect(items[0].quality).toEqual(6)
 
       })
+
+      it('conjured item quality should not fall below 0', () => {
+        items = []
+        let sell_in = 10
+        let quality = 0
+
+        items.push(new Item('Conjured Mana Cake', sell_in, quality))
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(9)
+        expect(items[0].quality).toEqual(0)
+      })
     })
 
     describe('all other items', () => {
