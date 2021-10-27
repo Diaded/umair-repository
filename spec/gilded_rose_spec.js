@@ -40,6 +40,32 @@ describe("Gilded Rose", function() {
         expect(items[0].sell_in).toEqual(9)
       })
 
+      it('checking for iteration with aged brie', ()=> {
+        items = []
+        items.push(new Item('Aged Brie', 10, 49))
+
+        update_quality()
+        expect(items[0].quality).toEqual(50)
+        expect(items[0].sell_in).toEqual(9)
+
+        update_quality()
+        expect(items[0].quality).toEqual(50)
+        expect(items[0].sell_in).toEqual(8)
+      })
+
+      it('checking for iteration with backstage passes', ()=> {
+        items = []
+        items.push(new Item('Backstage passes', 10, 50))
+
+        update_quality()
+        expect(items[0].quality).toEqual(50)
+        expect(items[0].sell_in).toEqual(9)
+
+        update_quality()
+        expect(items[0].quality).toEqual(50)
+        expect(items[0].sell_in).toEqual(8)
+      })
+
     })
 
     describe('Dealing with back stage passes', () => {
