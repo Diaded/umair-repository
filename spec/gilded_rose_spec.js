@@ -19,7 +19,7 @@ describe("Gilded Rose", function() {
         items = []
         items.push(new Item('Aged Brie', 10, 51))
 
-        expect(update_quality).toThrow('quality for non sulfura items should never be more then 50')
+        expect(update_quality).toThrow(maxQualityError)
       })
 
     })

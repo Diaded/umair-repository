@@ -17,6 +17,7 @@ const typeError = 'Improper types are present Item keys'
 const qualityError = 'Quality is less then 0'
 const backStageQualityError = 'incorrect quality for backstage passes'
 const sulfrasQualityError = 'incorrect quality of sulfras item'
+const maxQualityError = 'quality for non sulfura items should never be more then 50'
 
 function handle_backstage_passes(item) {
   if(item.sell_in <= 0 && item.quality > 0) throw backStageQualityError
@@ -51,6 +52,9 @@ function update_quality() {
     
     if(!Number.isInteger(item.sell_in) || !Number.isInteger(item.quality)) throw typeError
     if(item.quality < 0) throw qualityError
+    if(item.quality > 50 && !item.name.includes('Sulfuras')) throw maxQualityError
+     
+    
 
     if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
     else if(item.name.includes('Sulfuras')) handle_sulfras(item)
