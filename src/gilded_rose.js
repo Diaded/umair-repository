@@ -43,8 +43,10 @@ function handle_aged_brie(item) {
 
 function handle_conjured_item(item) {
   item.sell_in -=1
-  if(item.sell_in <= 0)item.quality -=4
-  else item.quality -=2
+  if(item.quality!==0) {
+    if(item.sell_in <= 0)item.quality -=4
+    else item.quality -=2
+  }
 }
 
 function handle_other_item(item) {
