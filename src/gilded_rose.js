@@ -39,6 +39,11 @@ function handle_aged_brie(item) {
   item.quality +=1
 }
 
+function handle_conjured_item(item) {
+  item.sell_in -=1
+  item.quality -=1
+}
+
 function update_quality() {
 
   for (const item of items) {
@@ -49,7 +54,6 @@ function update_quality() {
     if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
     else if(item.name.includes('Sulfuras')) handle_sulfras(item)
     else if(item.name === "Aged Brie") handle_aged_brie(item)
-
-
+    else if(item.name.includes('Conjured')) handle_conjured_item(item)
   }
 }
