@@ -22,6 +22,15 @@ describe("Gilded Rose", function() {
         expect(update_quality).toThrow(maxQualityError)
       })
 
+      it('non sulfura items should not go over 50', ()=> {
+        items = []
+        items.push(new Item('Aged Brie', 10, 50))
+
+        update_quality()
+        expect(item.quality).toEqual(50)
+        expect(item.sell_in).toEqual(9)
+      })
+
     })
 
     describe('Dealing with back stage passes', () => {
