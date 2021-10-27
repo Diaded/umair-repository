@@ -261,6 +261,29 @@ describe("Gilded Rose", function() {
         expect(items[0].sell_in).toEqual(9)
         expect(items[0].quality).toEqual(0)
       })
+
+      it('testing other item iteratively', () => {
+        items = []
+
+        let sell_in = 2
+        let quality = 3
+        items.push(new Item('Elixir of the Mongoose', sell_in, quality))
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(1)
+        expect(items[0].quality).toEqual(2)
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(0)
+        expect(items[0].quality).toEqual(0)
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(-1)
+        expect(items[0].quality).toEqual(0)
+
+
+      })
+
     })
     
 
