@@ -24,7 +24,8 @@ function handle_backstage_passes(item) {
 
   item.sell_in -= 1
 
-  if(item.sell_in <= 0) item.quality = 0
+  if(item.quality === 50 && item.sell_in > 0) console.log('nothing will happen here') 
+  else if(item.sell_in <= 0) item.quality = 0
   else if(item.sell_in <= 5) item.quality +=3
   else if(item.sell_in <= 10) item.quality +=2
   else item.quality +=1
@@ -37,7 +38,7 @@ function handle_sulfras(item) {
 
 function handle_aged_brie(item) {
   item.sell_in -=1
-  item.quality +=1
+  if(item.quality < 50) item.quality +=1
 }
 
 function handle_conjured_item(item) {
@@ -54,7 +55,6 @@ function update_quality() {
     if(item.quality < 0) throw qualityError
     if(item.quality > 50 && !item.name.includes('Sulfuras')) throw maxQualityError
      
-    
 
     if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
     else if(item.name.includes('Sulfuras')) handle_sulfras(item)

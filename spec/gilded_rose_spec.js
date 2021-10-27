@@ -27,8 +27,8 @@ describe("Gilded Rose", function() {
         items.push(new Item('Aged Brie', 10, 50))
 
         update_quality()
-        expect(item.quality).toEqual(50)
-        expect(item.sell_in).toEqual(9)
+        expect(items[0].quality).toEqual(50)
+        expect(item[0].sell_in).toEqual(9)
       })
 
     })
