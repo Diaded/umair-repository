@@ -28,7 +28,16 @@ describe("Gilded Rose", function() {
 
         update_quality()
         expect(items[0].quality).toEqual(50)
-        expect(item[0].sell_in).toEqual(9)
+        expect(items[0].sell_in).toEqual(9)
+      })
+
+      it('non sulfura items should not go over 50', ()=> {
+        items = []
+        items.push(new Item('Backstage passes', 10, 50))
+
+        update_quality()
+        expect(items[0].quality).toEqual(50)
+        expect(items[0].sell_in).toEqual(9)
       })
 
     })
