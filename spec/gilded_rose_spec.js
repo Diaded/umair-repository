@@ -18,12 +18,12 @@ describe("Gilded Rose", function() {
       it("quality of backstage passes should increase when sell in days get smaller", () => {
         items = []
         let sell_in = 25
-        let quality = 50
+        let quality = 40
         items.push(new Item('Backstage passes', sell_in, quality))
 
         update_quality()
 
-        expect(items[0].quality).toEqual(51)
+        expect(items[0].quality).toEqual(41)
 
       })
       it("quality of backstage passes should increase twice as fast if sell_in day is within 10", () => {
@@ -106,7 +106,7 @@ describe("Gilded Rose", function() {
         expect(items[0].sell_in).toEqual(9)
         expect(items[0].quality).toEqual(11)
       })
-      
+
     })
 
     
