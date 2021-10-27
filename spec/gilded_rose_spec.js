@@ -14,6 +14,16 @@ describe("Gilded Rose", function() {
       })
     })
 
+    describe('Items quality should never be more then 50 except sulfuras', () => {
+      it('throw an error if item quality is over 50', () => {
+        items = []
+        items.push(new Item('Aged Brie', 10, 51))
+
+        expect(update_quality).toThrow('quality for non sulfura items should never be more then 50')
+      })
+
+    })
+
     describe('Dealing with back stage passes', () => {
       it("quality of backstage passes should increase when sell in days get smaller", () => {
         items = []
@@ -51,7 +61,7 @@ describe("Gilded Rose", function() {
       it("quality of backstage passes should drop to 0 if sell_in day is 0 or less", () => {
         items = []
         let sell_in = 1
-        let quality = 50
+        let quality = 40
         items.push(new Item('Backstage passes', sell_in, quality))
   
         update_quality()
