@@ -80,6 +80,18 @@ describe("Gilded Rose", function() {
         expect(update_quality).toThrow(sulfrasQualityError)
       })
 
+      it('sulfras items quality should not alter as sell in decreases', ()=> {
+
+        items=[]
+        let sell_in = 10
+        let quality = 80
+        items.push(new Item('Sulfuras', sell_in, quality))
+        
+        update_quality()
+        expect(item[0].sell_in).toEqual(9)
+        expect(item[0].quality).toEqual(80)
+      })
+
     })
 
     
