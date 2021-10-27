@@ -199,6 +199,28 @@ describe("Gilded Rose", function() {
         expect(items[0].sell_in).toEqual(9)
         expect(items[0].quality).toEqual(0)
       })
+
+      it('testing conjured item iteratively', () => {
+        items = []
+
+        let sell_in = 2
+        let quality = 6
+        items.push(new Item('Conjured Mana Cake', sell_in, quality))
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(1)
+        expect(items[0].quality).toEqual(4)
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(0)
+        expect(items[0].quality).toEqual(0)
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(-1)
+        expect(items[0].quality).toEqual(0)
+
+
+      })
     })
 
     describe('all other items', () => {
