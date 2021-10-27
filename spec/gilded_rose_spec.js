@@ -122,7 +122,7 @@ describe("Gilded Rose", function() {
         expect(items[0].quality).toEqual(8)
       })
 
-      it('conjures itesm should decrease by 4 when sell_in is under 0', () => {
+      it('conjured itesm should decrease by 4 when sell_in is under 0', () => {
         items = []
         let sell_in = 0
         let quality = 10
