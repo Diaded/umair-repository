@@ -188,6 +188,21 @@ describe("Gilded Rose", function() {
 
       })
     })
+
+    describe('all other items', () => {
+      it('all other items should decrease by 1 when sell_in days are above 0', () => {
+        items = []
+        let sell_in = 2
+        let quality = 10
+
+        items.push(new Item('Elixir of the Mongoose', sell_in, quality))
+
+        update_quality()
+        expect(items[0].sell_in).toEqual(1)
+        expect(items[0].quality).toEqual(9)
+
+      })
+    })
     
 
 });
