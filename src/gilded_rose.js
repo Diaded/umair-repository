@@ -72,4 +72,6 @@ function update_quality() {
     else if(item.name.includes('Conjured')) handle_conjured_item(item)
     else handle_other_item(item)
   }
+
+  return;
 }
