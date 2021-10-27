@@ -64,9 +64,22 @@ describe("Gilded Rose", function() {
         let sell_in = 0
         let quality = 25
         items.push(new Item('Backstage passes', sell_in, quality))
-        
+
         expect(update_quality).toThrow(backStageQualityError)
       })
+    })
+
+    describe('handling sulfras items', () => {
+
+      it('sulfras items should always be 80', () => {
+        items = []
+        let sell_in = 0
+        let quality = 50
+        items.push(new Item('Sulfuras', sell_in, quality))
+
+        expect(update_quality).toThrow('quality of sulfras is always 80')
+      })
+
     })
 
     
