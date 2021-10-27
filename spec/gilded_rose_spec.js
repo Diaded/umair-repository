@@ -77,7 +77,7 @@ describe("Gilded Rose", function() {
         let quality = 50
         items.push(new Item('Sulfuras', sell_in, quality))
 
-        expect(update_quality).toThrow('quality of sulfras is always 80')
+        expect(update_quality).toThrow(sulfrasQualityError)
       })
 
     })

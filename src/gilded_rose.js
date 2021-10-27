@@ -16,6 +16,7 @@ items.push(new Item('Conjured Mana Cake', 3, 6));
 const typeError = 'Improper types are present Item keys'
 const qualityError = 'Quality is less then 0'
 const backStageQualityError = 'incorrect quality for backstage passes'
+const sulfrasQualityError = 'incorrect quality of sulfras item'
 
 function handle_backstage_passes(item) {
   if(item.sell_in <= 0 && item.quality > 0) throw backStageQualityError
@@ -28,6 +29,11 @@ function handle_backstage_passes(item) {
   else item.quality +=1
 }
 
+function handle_sulfras(item) {
+  if(item.quality!==80) throw sulfrasQualityError
+
+}
+
 function update_quality() {
 
   for (const item of items) {
@@ -36,6 +42,7 @@ function update_quality() {
     if(item.quality < 0) throw qualityError
 
     if(item.name.includes("Backstage passes"))  handle_backstage_passes(item)
+    if(item.name.includes('Sulfuras')) handle_sulfras(items)
 
 
   }
